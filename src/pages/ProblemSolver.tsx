@@ -116,11 +116,7 @@ export const ProblemSolver: React.FC = () => {
               </div>
             </div>
 
-            {testResults.length > 0 && (
-              <div className="bg-white rounded-lg shadow-md p-6">
-                <TestResults results={testResults} />
-              </div>
-            )}
+           
           </div>
 
           <div className="bg-white rounded-lg shadow-md overflow-hidden">
@@ -138,6 +134,11 @@ export const ProblemSolver: React.FC = () => {
                 automaticLayout: true,
               }}
             />
+             {testResults.length > 0 && (
+              <div className="bg-white rounded-lg shadow-md p-6">
+                <TestResults results={testResults} />
+              </div>
+            )}
           </div>
         </div>
       </div>
