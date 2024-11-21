@@ -27,7 +27,7 @@ export const problems: Problem[] = [
         input: 'nums = [2,7,11,15], target = 9',
         output: '[0,1]',
         fn: (nums: number[], target: number, code: string) => {
-          const result = eval(`(${code})([${nums}], ${target})`);
+          const result = eval(`(${code})([${nums}], ${target})()`);
           return JSON.stringify(result);
         },
         params: [[2,7,11,15], 9],
