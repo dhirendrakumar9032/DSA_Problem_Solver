@@ -11,17 +11,7 @@ export const problems: Problem[] = [
     starterCode: `function twoSum(nums, target) {
     // Your code here
 }`,
-    solution: `function twoSum(nums, target) {
-    const map = new Map();
-    for (let i = 0; i < nums.length; i++) {
-        const complement = target - nums[i];
-        if (map.has(complement)) {
-            return [map.get(complement), i];
-        }
-        map.set(nums[i], i);
-    }
-    return [];
-}`,
+   
     testCases: [
       {
         input: 'nums = [2,7,11,15], target = 9',
@@ -46,76 +36,6 @@ export const problems: Problem[] = [
     ]
   },
   {
-    id: '2',
-    title: 'Reverse String',
-    description: 'Write a function that reverses a string.',
-    category: 'String',
-    difficulty: 'easy',
-    starterCode: `function reverseString(str) {
-    // Your code here
-}`,
-    solution: `function reverseString(str) {
-    return str.split('').reverse().join('');
-}`,
-    testCases: [
-      {
-        input: '"hello"',
-        output: '"olleh"',
-        fn: (str: string, code: string) => {
-          const result = eval(`(${code})("${str}")`);
-          return JSON.stringify(result);
-        },
-        params: ['hello'],
-        expectedResult: '"olleh"'
-      },
-      {
-        input: '"world"',
-        output: '"dlrow"',
-        fn: (str: string, code: string) => {
-          const result = eval(`(${code})("${str}")`);
-          return JSON.stringify(result);
-        },
-        params: ['world'],
-        expectedResult: '"dlrow"'
-      }
-    ]
-  },
-  {
-    id: '3',
-    title: 'Find Maximum',
-    description: 'Write a function that finds the maximum number in an array.',
-    category: 'Array',
-    difficulty: 'easy',
-    starterCode: `function findMax(arr) {
-    // Your code here
-}`,
-    solution: `function findMax(arr) {
-    return Math.max(...arr);
-}`,
-    testCases: [
-      {
-        input: '[1, 3, 2, 5, 4]',
-        output: '5',
-        fn: (arr: number[], code: string) => {
-          const result = eval(`(${code})([${arr}])`);
-          return JSON.stringify(result);
-        },
-        params: [[1, 3, 2, 5, 4]],
-        expectedResult: '5'
-      },
-      {
-        input: '[10, 20, 30, 40, 50]',
-        output: '50',
-        fn: (arr: number[], code: string) => {
-          const result = eval(`(${code})([${arr}])`);
-          return JSON.stringify(result);
-        },
-        params: [[10, 20, 30, 40, 50]],
-        expectedResult: '50'
-      }
-    ]
-  },
-  {
     id: '4',
     title: 'Palindrome Check',
     description: 'Write a function that checks if a given string is a palindrome.',
@@ -124,10 +44,7 @@ export const problems: Problem[] = [
     starterCode: `function isPalindrome(s) {
     // Your code here
 }`,
-    solution: `function isPalindrome(s) {
-    const clean = s.replace(/\\W/g, '').toLowerCase();
-    return clean === clean.split('').reverse().join('');
-}`,
+   
     testCases: [
       {
         input: '"racecar"',
@@ -152,56 +69,6 @@ export const problems: Problem[] = [
     ]
   },
   {
-    id: '5',
-    title: 'Merge Sorted Arrays',
-    description: 'Given two sorted arrays, merge them into one sorted array.',
-    category: 'Array',
-    difficulty: 'easy',
-    starterCode: `function mergeSortedArrays(arr1, arr2) {
-    // Your code here
-}`,
-    solution: `function mergeSortedArrays(arr1, arr2) {
-    return [...arr1, ...arr2].sort((a, b) => a - b);
-}`,
-    testCases: [
-      {
-        input: '[1, 3, 5], [2, 4, 6]',
-        output: '[1, 2, 3, 4, 5, 6]',
-        fn: (arr1: number[], arr2: number[], code: string) => {
-          const result = eval(`(${code})([${arr1}], [${arr2}])`);
-          return JSON.stringify(result);
-        },
-        params: [[1, 3, 5], [2, 4, 6]],
-        expectedResult: '[1, 2, 3, 4, 5, 6]'
-      }
-    ]
-  },
-  {
-    id: '6',
-    title: 'Sum of Array',
-    description: 'Write a function that returns the sum of all elements in an array.',
-    category: 'Array',
-    difficulty: 'easy',
-    starterCode: `function sumArray(arr) {
-    // Your code here
-}`,
-    solution: `function sumArray(arr) {
-    return arr.reduce((acc, curr) => acc + curr, 0);
-}`,
-    testCases: [
-      {
-        input: '[1, 2, 3, 4, 5]',
-        output: '15',
-        fn: (arr: number[], code: string) => {
-          const result = eval(`(${code})([${arr}])`);
-          return JSON.stringify(result);
-        },
-        params: [[1, 2, 3, 4, 5]],
-        expectedResult: '15'
-      }
-    ]
-  },
-  {
     id: '7',
     title: 'Binary Search',
     description: 'Implement binary search algorithm to find the position of a target value within a sorted array.',
@@ -210,17 +77,7 @@ export const problems: Problem[] = [
     starterCode: `function binarySearch(arr, target) {
     // Your code here
 }`,
-    solution: `function binarySearch(arr, target) {
-    let left = 0;
-    let right = arr.length - 1;
-    while (left <= right) {
-        const mid = Math.floor((left + right) / 2);
-        if (arr[mid] === target) return mid;
-        if (arr[mid] < target) left = mid + 1;
-        else right = mid - 1;
-    }
-    return -1;
-}`,
+    
     testCases: [
       {
         input: '[1, 2, 3, 4, 5, 6], 4',
@@ -244,6 +101,203 @@ export const problems: Problem[] = [
       }
     ]
   },
+  {
+    id: '2',
+    title: 'Best Time to Buy and Sell Stock',
+    description: `You are given an array \`prices\` where \`prices[i]\` is the price of a given stock on the \`iᵗʰ\` day.
+
+You want to maximize your profit by choosing a single day to buy one stock and choosing a different day in the future to sell that stock.
+
+Return the maximum profit you can achieve from this transaction. If you cannot achieve any profit, return 0.`,
+    category: 'Array',
+    difficulty: 'easy',
+    starterCode: `function maxProfit(prices) {
+        // Your code here
+    }`,
+   
+    testCases: [
+      {
+        input: 'prices = [7,1,5,3,6,4]',
+        output: '5',
+        fn: (prices, code) => {
+          const result = eval(`(${code})(${JSON.stringify(prices)})`);
+          return JSON.stringify(result);
+        },
+        params: [[7,1,5,3,6,4]],
+        expectedResult: '5'
+      }
+    ]
+},
+{
+  id: '3',
+  title: 'Dutch National Flag Problem',
+  description: `Given an array \`nums\` with \`n\` objects colored red, white, or blue, sort them in-place so that objects of the same color are adjacent, with the colors in the order red, white, and blue.
+  
+  We will use the integers \`0\`, \`1\`, and \`2\` to represent the color red, white, and blue respectively.
+  
+  You must solve this problem without using the library's sort function.`,
+  category: 'Array',
+  difficulty: 'medium',
+  starterCode: `function sortColors(nums) {
+      // Your code here
+  }`,
+ 
+  testCases: [
+    {
+      input: 'nums = [2,0,2,1,1,0]',
+      output: '[0,0,1,1,2,2]',
+      fn: (nums: number[], code: string) => {
+        const sortFunction = new Function('nums', code);
+        sortFunction(nums);
+        return JSON.stringify(nums);
+      },
+      params: [[2,0,2,1,1,0]],
+      expectedResult: '[0,0,1,1,2,2]'
+    },
+   
+  ]
+},
+{
+  id: '412',
+  title: 'Subarray Sum Equals K',
+  description: `Given an array \`nums\` and an integer \`k\`, return the total number of continuous subarrays whose sum equals to \`k\`.
+`,
+  category: 'Array',
+  difficulty: 'medium',
+  starterCode: `function subarraySum(nums, k) {
+      // Your code here
+  }`,
+ 
+  testCases: [
+    {
+      input: 'nums = [1,1,1], k = 2',
+      output: '2',
+      fn: (nums: number[], k: number, code: string) => {
+        const subarraySumFunction = new Function('nums', 'k', code);
+        const result = subarraySumFunction(nums, k);
+        return JSON.stringify(result);
+      },
+      params: [[1, 1, 1], 2],
+      expectedResult: '2'
+    },
+    {
+      input: 'nums = [1,2,3], k = 3',
+      output: '2',
+      fn: (nums: number[], k: number, code: string) => {
+        const subarraySumFunction = new Function('nums', 'k', code);
+        const result = subarraySumFunction(nums, k);
+        return JSON.stringify(result);
+      },
+      params: [[1, 2, 3], 3],
+      expectedResult: '2'
+    },
+   
+    {
+      input: 'nums = [3,4,7,2,-3,1,4,2], k = 7',
+      output: '4',
+      fn: (nums: number[], k: number, code: string) => {
+        const subarraySumFunction = new Function('nums', 'k', code);
+        const result = subarraySumFunction(nums, k);
+        return JSON.stringify(result);
+      },
+      params: [[3, 4, 7, 2, -3, 1, 4, 2], 7],
+      expectedResult: '4'
+    }
+  ]
+},
+{
+  id: '5',
+  title: 'Merge Sorted Array',
+  description: `You are given two integer arrays \`nums1\` and \`nums2\`, sorted in non-decreasing order, and two integers \`m\` and \`n\`, representing the number of elements in \`nums1\` and \`nums2\` respectively.
+  Merge \`nums2\` into \`nums1\` so that \`nums1\` becomes a single sorted array of length \`m + n\`.`,
+  category: 'Array',
+  difficulty: 'easy',
+  starterCode: `function merge(nums1, m, nums2, n) {
+      // Your code here
+  }`,
+ 
+  testCases: [
+    {
+      input: 'nums1 = [1,2,3,0,0,0], m = 3, nums2 = [2,5,6], n = 3',
+      output: '[1,2,2,3,5,6]',
+      fn: (nums1: number[], m: number, nums2: number[], n: number, code: string) => {
+        const mergeFunction = new Function('nums1', 'm', 'nums2', 'n', code);
+        mergeFunction(nums1, m, nums2, n);
+        return JSON.stringify(nums1);
+      },
+      params: [[1, 2, 3, 0, 0, 0], 3, [2, 5, 6], 3],
+      expectedResult: '[1,2,2,3,5,6]'
+    },
+    
+    {
+      input: 'nums1 = [0], m = 0, nums2 = [1], n = 1',
+      output: '[1]',
+      fn: (nums1: number[], m: number, nums2: number[], n: number, code: string) => {
+        const mergeFunction = new Function('nums1', 'm', 'nums2', 'n', code);
+        mergeFunction(nums1, m, nums2, n);
+        return JSON.stringify(nums1);
+      },
+      params: [[0], 0, [1], 1],
+      expectedResult: '[1]'
+    },
+   
+  ]
+},
+{
+  id: '6',
+  title: 'Trapping Rain Water',
+  description: `Given an array \`height\` where each element represents the height of a bar at that index, compute how much water it can trap after raining.
+  `,
+  category: 'Array',
+  difficulty: 'hard',
+  starterCode: `function trap(height) {
+      // Your code here
+  }`,
+ 
+  testCases: [
+    {
+      input: 'height = [0,1,0,2,1,0,1,3,2,1,2,1]',
+      output: '6',
+      fn: (height: number[], code: string) => {
+        const trapFunction = new Function('height', code);
+        const result = trapFunction(height);
+        return JSON.stringify(result);
+      },
+      params: [[0,1,0,2,1,0,1,3,2,1,2,1]],
+      expectedResult: '6'
+    },
+    {
+      input: 'height = [4,2,0,3,2,5]',
+      output: '9',
+      fn: (height: number[], code: string) => {
+        const trapFunction = new Function('height', code);
+        const result = trapFunction(height);
+        return JSON.stringify(result);
+      },
+      params: [[4,2,0,3,2,5]],
+      expectedResult: '9'
+    },
+   
+   
+    {
+      input: 'height = []',
+      output: '0',
+      fn: (height: number[], code: string) => {
+        const trapFunction = new Function('height', code);
+        const result = trapFunction(height);
+        return JSON.stringify(result);
+      },
+      params: [[]],
+      expectedResult: '0'
+    },
+   
+  ]
+}
+
+
+
+
+
 ];
 
 

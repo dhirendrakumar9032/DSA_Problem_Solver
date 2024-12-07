@@ -10,7 +10,7 @@ export interface Problem {
   difficulty: Difficulty;
   starterCode: string;
   testCases: TestCase[];
-  solution: string;
+  solution?: string;
 }
 
 export interface TestCase {
