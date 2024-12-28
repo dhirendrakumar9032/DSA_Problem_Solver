@@ -278,7 +278,6 @@ Return the maximum profit you can achieve from this transaction. If you cannot a
       expectedResult: '9'
     },
    
-   
     {
       input: 'height = []',
       output: '0',
@@ -292,11 +291,42 @@ Return the maximum profit you can achieve from this transaction. If you cannot a
     },
    
   ]
+},
+{
+  id: '101',
+  title: 'Minimum Jumps to Reach End',
+  description: `Given an array of non-negative integers where each element represents the maximum jump length from that position, determine the minimum number of jumps required to reach the end of the array starting from the first element. If reaching the end is impossible, return -1.`,
+  category: 'Array',
+  difficulty: 'medium',
+  starterCode: `function minJumps(arr) {
+    // Your code here
+  }`,
+   
+  testCases: [
+    {
+      input: 'arr = [1, 3, 5, 8, 9, 2, 6, 7, 6, 8, 9]',
+      output: '3',
+      fn: (arr: number[], code: string) => {
+        const jumpFunction = new Function('arr', code);
+        const result = jumpFunction(arr);
+        return JSON.stringify(result);
+      },
+      params: [[1, 3, 5, 8, 9, 2, 6, 7, 6, 8, 9]],
+      expectedResult: '3'
+    },
+    {
+      input: 'arr = [1, 4, 3, 2, 6, 7]',
+      output: '2',
+      fn: (arr: number[], code: string) => {
+        const jumpFunction = new Function('arr', code);
+        const result = jumpFunction(arr);
+        return JSON.stringify(result);
+      },
+      params: [[1, 4, 3, 2, 6, 7]],
+      expectedResult: '2'
+    }
+  ]
 }
-
-
-
-
 
 ];
 
