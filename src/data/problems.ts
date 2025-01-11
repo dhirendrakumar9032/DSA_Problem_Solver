@@ -326,6 +326,39 @@ Return the maximum profit you can achieve from this transaction. If you cannot a
       expectedResult: '2'
     }
   ]
+},
+{
+  id: "MergeSortedArray",
+  title: "Merge Sorted Array",
+  description: "Given two sorted integer arrays `arr1` and `arr2`, where `arr1` has a sufficient amount of trailing zeros to hold elements of `arr2`, merge `arr2` into `arr1` as one sorted array. The number of elements initialized in `arr1` and `arr2` are m and n respectively.",
+  category: "Array",
+  difficulty: "easy",
+  starterCode: `
+function mergeSortedArr(arr1, arr2) {
+  // Your code here
+}`,
+  testCases: [
+    {
+      input: "arr1 = [1, 2, 3, 0, 0, 0], arr2 = [2, 5, 6]",
+      output: "[1, 2, 2, 3, 5, 6]",
+      fn: (arr1, arr2, code) => {
+        const result = eval(`(${code})([${arr1}], [${arr2}])`);
+        return JSON.stringify(result);
+      },
+      params: [[1, 2, 3, 0, 0, 0], [2, 5, 6]],
+      expectedResult: "[1, 2, 2, 3, 5, 6]"
+    },
+    {
+      input: "arr1 = [1, 3, 5, 0, 0, 0], arr2 = [2, 4, 6]",
+      output: "[1, 2, 3, 4, 5, 6]",
+      fn: (arr1, arr2, code) => {
+        const result = eval(`(${code})([${arr1}], [${arr2}])`);
+        return JSON.stringify(result);
+      },
+      params: [[1, 3, 5, 0, 0, 0], [2, 4, 6]],
+      expectedResult: "[1, 2, 3, 4, 5, 6]"
+    }
+  ]
 }
 
 ];
